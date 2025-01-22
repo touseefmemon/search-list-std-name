@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <label for="">Search</label>
+                <input type="text" class="form-control" id="search">
+            </div>
+            <ul class="list-group" id="furlst">
+                <li class="list-group-item">Apple</li>
+                <li class="list-group-item">Mango</li>
+                <li class="list-group-item">Banana</li>
+                <li class="list-group-item">Pineapple</li>
+                <li class="list-group-item">Orange</li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $('#search').keyup(function () {
+                var value = $(this).val().toLowerCase();
+                $('#furlst li').filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+                })
+            })
+
+            $("#furlst li").click(function () {
+                $("#search").val($(this).text())
+            })
+
+        })
+    </script>
+</body>
+
+</html>
